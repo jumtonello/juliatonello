@@ -412,3 +412,901 @@ section{padding:100px 0;position:relative;}
 .service-for-text{
   font-size:1.05rem;
   color:var(--text-primary);
+  font-weight:500;
+  line-height:1.5;
+}
+.method{
+  background:var(--bg-secondary);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.method-header{
+  text-align:center;
+  margin-bottom:60px;
+}
+.method-title-big{
+  font-family:var(--font-heading);
+  font-size:clamp(3rem, 8vw, 6rem);
+  font-weight:900;
+  letter-spacing:8px;
+  color:var(--accent);
+  margin-bottom:12px;
+}
+.method-subtitle{
+  font-family:var(--font-hand);
+  font-size:1.6rem;
+  color:var(--text-secondary);
+}
+.method-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+}
+.method-item{
+  background:var(--bg-primary);
+  border:1px solid var(--border);
+  padding:36px 28px;
+  border-radius:4px;
+  transition:all 0.3s ease;
+}
+.method-item:hover{
+  border-color:var(--accent);
+  transform:translateY(-4px);
+}
+.method-letter{
+  font-family:var(--font-heading);
+  font-size:3rem;
+  font-weight:800;
+  color:var(--accent);
+  line-height:1;
+  margin-bottom:12px;
+}
+.method-item h4{
+  font-family:var(--font-heading);
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.method-item p{
+  color:var(--text-secondary);
+  font-size:0.95rem;
+  line-height:1.6;
+}
+.about{
+  background:var(--bg-primary);
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:0.8fr 1.2fr;
+  gap:60px;
+  align-items:center;
+}
+.about-photo{
+  aspect-ratio:4/5;
+  background:var(--bg-secondary);
+  border:1px solid var(--border);
+  border-radius:4px;
+  position:relative;
+  overflow:hidden;
+}
+.about-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.about-photo-frame{
+  position:absolute;
+  top:16px;left:16px;right:16px;bottom:16px;
+  border:1px solid var(--border);
+  pointer-events:none;
+}
+.about-photo-credit{
+  position:absolute;
+  bottom:12px;
+  right:16px;
+  font-size:0.7rem;
+  color:rgba(255,255,255,0.5);
+  letter-spacing:0.5px;
+  text-shadow:0 1px 4px rgba(0,0,0,0.6);
+}
+.about-content h2{
+  font-family:var(--font-heading);
+  font-size:clamp(2rem, 5vw, 3.2rem);
+  font-weight:700;
+  line-height:1.15;
+  margin-bottom:28px;
+}
+.about-content h2 .hand{
+  font-family:var(--font-hand);
+  font-style:normal;
+  color:var(--accent);
+  font-size:0.85em;
+}
+.about-content p{
+  color:var(--text-secondary);
+  font-size:1.1rem;
+  line-height:1.8;
+  margin-bottom:20px;
+}
+.about-content p strong{
+  color:var(--text-primary);
+  font-weight:600;
+}
+.about-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:28px;
+}
+.about-tag{
+  padding:8px 16px;
+  border:1px solid var(--border);
+  border-radius:2px;
+  font-size:0.85rem;
+  color:var(--text-secondary);
+  letter-spacing:0.3px;
+}
+.cases{
+  background:var(--bg-secondary);
+  border-top:1px solid var(--border);
+}
+.cases-header{
+  margin-bottom:60px;
+}
+.cases-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:24px;
+}
+.case-card{
+  background:var(--bg-primary);
+  border:1px solid var(--border);
+  border-radius:4px;
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+.case-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-4px);
+}
+.case-img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+  border-bottom:1px solid var(--border);
+}
+.case-body{
+  padding:28px 32px 32px;
+}
+.case-name{
+  font-family:var(--font-heading);
+  font-size:1.6rem;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.case-type{
+  font-family:var(--font-hand);
+  font-size:1.2rem;
+  color:var(--accent);
+  margin-bottom:12px;
+}
+.case-desc{
+  color:var(--text-secondary);
+  font-size:0.98rem;
+  line-height:1.6;
+  margin-bottom:12px;
+}
+.case-credit{
+  font-size:0.75rem;
+  color:var(--text-secondary);
+  letter-spacing:0.5px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+  margin-top:12px;
+}
+.case-credit span{color:var(--accent);}
+.case-result{
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  margin-top:12px;
+}
+.case-result-label{
+  font-size:0.8rem;
+  color:var(--text-secondary);
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.case-result-value{
+  font-family:var(--font-heading);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--accent);
+}
+.manifest{
+  background:var(--bg-primary);
+  padding:140px 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.manifest::before{
+  content:'';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:600px;
+  background:radial-gradient(circle, rgba(200,168,124,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.manifest .container{max-width:1000px;position:relative;z-index:1;}
+.manifest-quote{
+  font-family:var(--font-heading);
+  font-size:clamp(1.8rem, 5vw, 3.8rem);
+  font-weight:700;
+  line-height:1.25;
+  letter-spacing:-1px;
+}
+.manifest-quote .gold{color:var(--accent);font-style:italic;}
+.manifest-quote .strike{
+  position:relative;
+  display:inline-block;
+}
+.manifest-quote .strike::after{
+  content:'';
+  position:absolute;
+  top:55%;left:-3%;
+  width:106%;height:3px;
+  background:var(--text-secondary);
+  transform:rotate(-1deg);
+}
+.manifest-signature{
+  font-family:var(--font-hand);
+  font-size:2rem;
+  color:var(--accent);
+  margin-top:40px;
+}
+.contact{
+  background:var(--bg-secondary);
+  border-top:1px solid var(--border);
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:60px;
+}
+.contact-left h2{
+  font-family:var(--font-heading);
+  font-size:clamp(2rem, 4.5vw, 3rem);
+  font-weight:700;
+  line-height:1.15;
+  margin-bottom:24px;
+}
+.contact-left p{
+  color:var(--text-secondary);
+  font-size:1.1rem;
+  line-height:1.7;
+  margin-bottom:32px;
+}
+.contact-channels{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.contact-channel{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:var(--text-primary);
+  text-decoration:none;
+  font-size:1rem;
+  transition:color 0.3s ease;
+}
+.contact-channel:hover{color:var(--accent);}
+.contact-channel-icon{
+  width:44px;height:44px;
+  border:1px solid var(--border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  transition:all 0.3s ease;
+}
+.contact-channel:hover .contact-channel-icon{
+  border-color:var(--accent);
+  background:rgba(200,168,124,0.08);
+}
+.contact-channel-icon svg{width:20px;height:20px;fill:var(--accent);}
+.contact-form{
+  background:var(--bg-primary);
+  border:1px solid var(--border);
+  padding:40px;
+  border-radius:4px;
+}
+.form-group{margin-bottom:22px;}
+.form-group label{
+  display:block;
+  font-size:0.85rem;
+  color:var(--text-secondary);
+  margin-bottom:8px;
+  letter-spacing:0.3px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:14px 16px;
+  background:var(--bg-secondary);
+  border:1px solid var(--border);
+  border-radius:2px;
+  color:var(--text-primary);
+  font-family:var(--font-body);
+  font-size:1rem;
+  transition:border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-group select{
+  cursor:pointer;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23c8a87c' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  padding-right:40px;
+}
+.form-group select option{background:var(--bg-secondary);}
+.form-submit{
+  width:100%;
+  margin-top:8px;
+}
+.form-note{
+  font-size:0.8rem;
+  color:var(--text-secondary);
+  text-align:center;
+  margin-top:16px;
+}
+.footer{
+  background:var(--bg-primary);
+  padding:80px 0 40px;
+  border-top:1px solid var(--border);
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:60px;
+}
+.footer-brand h3{
+  font-family:var(--font-heading);
+  font-size:1.8rem;
+  font-weight:700;
+  margin-bottom:16px;
+}
+.footer-brand h3 span{color:var(--accent);}
+.footer-brand p{
+  color:var(--text-secondary);
+  font-size:0.95rem;
+  line-height:1.7;
+  max-width:300px;
+}
+.footer-col h4{
+  font-size:0.8rem;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--accent);
+  margin-bottom:18px;
+}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-size:0.95rem;
+  transition:color 0.3s ease;
+}
+.footer-col ul li a:hover{color:var(--text-primary);}
+.footer-quote{
+  font-family:var(--font-heading);
+  font-style:italic;
+  font-size:1.4rem;
+  color:var(--text-primary);
+  text-align:center;
+  padding:40px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  margin-bottom:30px;
+  line-height:1.4;
+}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.footer-copy{
+  color:var(--text-secondary);
+  font-size:0.85rem;
+}
+.footer-social{
+  display:flex;
+  gap:14px;
+}
+.footer-social a{
+  width:40px;height:40px;
+  border:1px solid var(--border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s ease;
+}
+.footer-social a:hover{
+  border-color:var(--accent);
+  background:rgba(200,168,124,0.08);
+}
+.footer-social svg{width:18px;height:18px;fill:var(--text-primary);transition:fill 0.3s ease;}
+.footer-social a:hover svg{fill:var(--accent);}
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.fade-in-delay-1{transition-delay:0.1s;}
+.fade-in-delay-2{transition-delay:0.2s;}
+.fade-in-delay-3{transition-delay:0.3s;}
+.fade-in-delay-4{transition-delay:0.4s;}
+@media (max-width:900px){
+  .nav-links{
+    position:fixed;
+    top:0;right:0;
+    width:100%;
+    max-width:320px;
+    height:100vh;
+    background:var(--bg-secondary);
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding:80px 40px;
+    gap:24px;
+    transform:translateX(100%);
+    transition:transform 0.4s ease;
+    border-left:1px solid var(--border);
+  }
+  .nav-links.active{transform:translateX(0);}
+  .nav-links a{font-size:1.1rem;}
+  .nav-cta{margin-top:12px;}
+  .hamburger{display:flex;}
+  .services-grid{grid-template-columns:1fr;}
+  .method-grid{grid-template-columns:repeat(2, 1fr);}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .about-photo{max-width:400px;margin:0 auto;}
+  .cases-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;gap:40px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+  .footer-brand{grid-column:1/-1;}
+}
+@media (max-width:560px){
+  section{padding:70px 0;}
+  .container{padding:0 20px;}
+  .hero{padding:110px 0 60px;}
+  .hero-ctas{flex-direction:column;}
+  .btn{width:100%;}
+  .method-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .contact-form{padding:28px 20px;}
+  .service-card{padding:36px 24px;}
+  .case-body{padding:20px 16px 24px;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+<div class="grain-overlay"></div>
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">Julia <span>Tonello</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicos">O que faço</a></li>
+      <li><a href="#sobre">Sobre mim</a></li>
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="#contato" class="nav-cta">Vamos conversar</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <span class="hero-eyebrow">Food Marketing Strategist</span>
+    <h1>
+      Seu restaurante não precisa de mais <span class="strike">posts</span>.<br>
+      Precisa de <span class="highlight">estratégia</span>.
+    </h1>
+    <p class="hero-sub">Estratégia de redes sociais + Gestão que realmente entrega resultado.</p>
+    <p class="hero-sub-secondary">Entendo de restaurantes por dentro. E de marketing por fora.</p>
+    <div class="hero-ctas">
+      <a href="#contato" class="btn btn-primary">Quero crescer meu restaurante</a>
+      <a href="#cases" class="btn btn-outline">Ver cases</a>
+    </div>
+  </div>
+</section>
+<section class="problem" id="problema">
+  <div class="container">
+    <p class="problem-eyebrow fade-in">A verdade que ninguém te conta</p>
+    <h2 class="fade-in">Viralizou. E agora?</h2>
+    <p class="problem-quote fade-in fade-in-delay-1">
+      <span class="gold">View</span> enche ego.<br>
+      <span class="gold">Cliente</span> enche mesa.
+    </p>
+    <p class="problem-text fade-in fade-in-delay-2">
+      Milhões de visualizações não pagam contas. Curtidas não lotam o salão na sexta à noite. O que importa é transformar atenção em reserva, em fila, em cliente que volta. O resto é barulho.
+    </p>
+  </div>
+</section>
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label fade-in">Duas formas de trabalhar</span>
+      <h2 class="section-title fade-in fade-in-delay-1">Estratégia ou Gestão.<br>Escolha o que seu restaurante precisa.</h2>
+      <p class="section-intro fade-in fade-in-delay-2" style="margin:0 auto;">
+        Não é tudo a mesma coisa. Uma define o caminho. A outra percorre o caminho. Algumas marcas precisam das duas. Outras, de apenas uma. Vamos descobrir a sua.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-number">01</div>
+        <h3>Estratégia de Redes Sociais</h3>
+        <ul>
+          <li>Posicionamento e identidade de marca</li>
+          <li>Tom de voz e linguagem que soa autêntico</li>
+          <li>Conteúdo estratégico com propósito</li>
+          <li>Calendário editorial e funil de conteúdo</li>
+          <li>Posicionamento que diferencia do concorrente</li>
+        </ul>
+        <div class="service-for">
+          <p class="service-for-label">Para quem é:</p>
+          <p class="service-for-text">Restaurantes que querem ser ESCOLHIDOS, não só vistos.</p>
+        </div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-number">02</div>
+        <h3>Gestão de Redes Sociais</h3>
+        <ul>
+          <li>Operação completa: criação e publicação</li>
+          <li>Conteúdo alinhado à estratégia definida</li>
+          <li>Acompanhamento de publicações e engajamento</li>
+          <li>Relatórios de performance mensais</li>
+          <li>Otimização contínua baseada em dados</li>
+        </ul>
+        <div class="service-for">
+          <p class="service-for-label">Para quem é:</p>
+          <p class="service-for-text">Restaurantes que querem EXECUTAR sem se preocupar com o dia a dia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="method" id="metodo">
+  <div class="container">
+    <div class="method-header">
+      <div class="method-title-big fade-in">M.E.S.A.</div>
+      <p class="method-subtitle fade-in fade-in-delay-1">O método que constrói marcas que ficam na memória</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-item fade-in">
+        <div class="method-letter">M</div>
+        <h4>Marca</h4>
+        <p>Quem você é. O que te torna diferente. A essência que ninguém consegue copiar.</p>
+      </div>
+      <div class="method-item fade-in fade-in-delay-1">
+        <div class="method-letter">E</div>
+        <h4>Experiência</h4>
+        <p>Tudo comunica. Do cardápio ao banheiro, do Instagram ao garçom. Cada ponto de contato importa.</p>
+      </div>
+      <div class="method-item fade-in fade-in-delay-2">
+        <div class="method-letter">S</div>
+        <h4>Estratégia</h4>
+        <p>Marketing com propósito. Não é postar por postar — é cada peça ter um papel no funil.</p>
+      </div>
+      <div class="method-item fade-in fade-in-delay-3">
+        <div class="method-letter">A</div>
+        <h4>Ação</h4>
+        <p>Implementação real. Plano sem execução é só um PDF bonito. Aqui a coisa acontece.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo fade-in">
+        <img src="https://i.imgur.com/crd6YW2.jpeg" alt="Julia Tonello">
+        <div class="about-photo-frame"></div>
+        <div class="about-photo-credit">📷 Fer Fotos</div>
+      </div>
+      <div class="about-content fade-in fade-in-delay-1">
+        <span class="section-label">Sobre mim</span>
+        <h2>Tudo começou <span class="hand">na gastronomia.</span></h2>
+        <p>
+          <strong>Formada em Gastronomia</strong>, vivi o restaurante por dentro. Operação, gestão, atendimento, cardápio, números. Sei o que é servir 200 covers num sábado com cozinha quente e cliente impatient.
+        </p>
+        <p>
+          Depois, me especializei em <strong>Comunicação e Marketing</strong>. Juntei os dois mundos: o de quem entende a cozinha e o de quem entende o cliente. Não falo de restaurantes de fora para dentro — falo de dentro para fora.
+        </p>
+        <p>
+          Por isso não vendo ilusão. Vendo estratégia que respeita a realidade da sua operação.
+        </p>
+        <div class="about-tags">
+          <span class="about-tag">Gastronomia</span>
+          <span class="about-tag">Comunicação</span>
+          <span class="about-tag">Marketing</span>
+          <span class="about-tag">Social Media</span>
+          <span class="about-tag">Branding</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="cases-header fade-in">
+      <span class="section-label">Cases & Resultados</span>
+      <h2 class="section-title">Marcas que pararam de postar<br>e começaram a comunicar.</h2>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card fade-in">
+        <p class="case-name">Nalu Açaí</p>
+        <p class="case-type">Açaí & Bowls — Criado por Julia Tonello</p>
+        <p class="case-desc">Reposicionamento de marca e estratégia de conteúdo focada em lifestyle e autenticidade. Identidade visual alinhada ao público jovem.</p>
+        <div class="case-result">
+          <span class="case-result-label">Resultado:</span>
+          <span class="case-result-value">+180% engajamento qualificado</span>
+        </div>
+      </div>
+      <div class="case-card fade-in fade-in-delay-1">
+        <p class="case-name">Issho Sushi</p>
+        <p class="case-type">Japonês & Autoral — 📷 Fer Fotos</p>
+        <p class="case-desc">Gestão completa de redes com conteúdo que valoriza a técnica e a experiência. Funil de conteúdo do descobrimento à reserva.</p>
+        <div class="case-result">
+          <span class="case-result-label">Resultado:</span>
+          <span class="case-result-value">+90% reservas via Instagram</span>
+        </div>
+      </div>
+      <div class="case-card fade-in fade-in-delay-2">
+        <p class="case-name">Panini Sanduíche</p>
+        <p class="case-type">Sanduíches & Comfort Food — 📷 Fer Fotos</p>
+        <p class="case-desc">Estratégia de posicionamento e gestão de conteúdo. Foco em apetite appeal e comunicação direta que converte seguidor em cliente.</p>
+        <div class="case-result">
+          <span class="case-result-label">Resultado:</span>
+          <span class="case-result-value">+220% alcance local</span>
+        </div>
+      </div>
+      <div class="case-card fade-in fade-in-delay-3">
+        <p class="case-name">Lanches do Alemão</p>
+        <p class="case-type">Hamburguer & Street Food — 📷 Fer Fotos</p>
+        <p class="case-desc">Rebranding e gestão de redes sociais. Tom de voz autêntico, conteúdo que celebra a cultura do lanche e a história da marca.</p>
+        <div class="case-result">
+          <span class="case-result-label">Resultado:</span>
+          <span class="case-result-value">+150% pedidos online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="manifest">
+  <div class="container">
+    <p class="manifest-quote fade-in">
+      Não vendo <span class="strike">posts</span>.<br>
+      Não vendo <span class="strike">seguidores</span>.<br>
+      Vendo <span class="gold">posicionamento</span>.<br>
+      Vendo <span class="gold">crescimento</span>.
+    </p>
+    <p class="manifest-signature fade-in fade-in-delay-1">— Julia Tonello</p>
+  </div>
+</section>
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left fade-in">
+        <span class="section-label">Vamos conversar</span>
+        <h2>Seu restaurante merece ser lembrado.<br>Antes mesmo do cliente abrir o cardápio.</h2>
+        <p>Conta o que está acontecendo aí. O que está funcionando, o que não está, e onde você quer chegar. O resto a gente constrói junto.</p>
+        <div class="contact-channels">
+          <a href="https://wa.me/5551995968770?text=Ol%C3%A1%20Julia%2C%20quero%20conversar%20sobre%20meu%20restaurante" target="_blank" rel="noopener" class="contact-channel">
+            <span class="contact-channel-icon">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </span>
+            WhatsApp direto
+          </a>
+          <a href="https://instagram.com/juliatonello" target="_blank" rel="noopener" class="contact-channel">
+            <span class="contact-channel-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </span>
+            @juliatonello
+          </a>
+          <a href="mailto:jumtonello@gmail.com" class="contact-channel">
+            <span class="contact-channel-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </span>
+            jumtonello@gmail.com
+          </a>
+        </div>
+      </div>
+      <form class="contact-form fade-in fade-in-delay-1" id="contactForm">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="negocio">Nome do negócio</label>
+          <input type="text" id="negocio" name="negocio" required placeholder="Nome do restaurante">
+        </div>
+        <div class="form-group">
+          <label for="segmento">Segmento</label>
+          <select id="segmento" name="segmento" required>
+            <option value="">Selecione...</option>
+            <option value="Restaurante">Restaurante</option>
+            <option value="Cafeteria">Cafeteria</option>
+            <option value="Bar">Bar / Pub</option>
+            <option value="Lanchonete">Lanchonete / Hamburgueria</option>
+            <option value="Açaí">Açaí / Bowls</option>
+            <option value="Japonês">Japonês / Sushi</option>
+            <option value="Pizzaria">Pizzaria</option>
+            <option value="Confeitaria">Confeitaria / Padaria</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensagem">O que quer resolver?</label>
+          <textarea id="mensagem" name="mensagem" required placeholder="Conta aí: o que está pegando no seu restaurante hoje?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Enviar via WhatsApp</button>
+        <p class="form-note">Ao enviar, você será direcionado ao WhatsApp com a mensagem pronta.</p>
+      </form>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Julia <span>Tonello</span></h3>
+        <p>Estratégia e gestão de redes sociais para restaurantes que querem ser escolhidos — não só vistos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#servicos">O que faço</a></li>
+          <li><a href="#sobre">Sobre mim</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#cases">Cases</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Estratégia</a></li>
+          <li><a href="#servicos">Gestão</a></li>
+          <li><a href="#metodo">Método M.E.S.A.</a></li>
+          <li><a href="#contato">Consultoria</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5551995968770" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://instagram.com/juliatonello" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:jumtonello@gmail.com">E-mail</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-quote">"Toda marca comunica. A questão é: o que ela está dizendo?"</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="year"></span> Julia Tonello. Food Marketing Strategist.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/juliatonello" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/5551995968770" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  'use strict';
+  const nav = document.getElementById('nav');
+  function handleScroll(){
+    if(window.pageYOffset > 60){
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleScroll, {passive:true});
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+  const observerOptions = {threshold:0.12, rootMargin:'0px 0px -50px 0px'};
+  const fadeObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.fade-in').forEach(function(el){
+    fadeObserver.observe(el);
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+    anchor.addEventListener('click', function(e){
+      const targetId = this.getAttribute('href');
+      if(targetId === '#' || targetId.length < 2) return;
+      const target = document.querySelector(targetId);
+      if(target){
+        e.preventDefault();
+        const offset = 70;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({top:targetPosition, behavior:'smooth'});
+      }
+    });
+  });
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const negocio = document.getElementById('negocio').value.trim();
+    const segmento = document.getElementById('segmento').value;
+    const mensagem = document.getElementById('mensagem').value.trim();
+    const text =
+      'Olá Julia! Vim pelo site.%0A%0A' +
+      '*Nome:* ' + encodeURIComponent(nome) + '%0A' +
+      '*E-mail:* ' + encodeURIComponent(email) + '%0A' +
+      '*Negócio:* ' + encodeURIComponent(negocio) + '%0A' +
+      '*Segmento:* ' + encodeURIComponent(segmento) + '%0A' +
+      '*O que quero resolver:* ' + encodeURIComponent(mensagem);
+    const url = 'https://wa.me/5551995968770?text=' + text;
+    window.open(url, '_blank');
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
