@@ -1,452 +1,414 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julia Tonello — Food Marketing Strategist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg: #0a0a0a; --bg2: #111111; --bg3: #1a1a1a;
-            --gold: #c8a87c; --gold-light: #e0c9a6; --gold-dark: #a8885e;
-            --text: #f0ece8; --text-muted: #9a958e; --border: #1e1e1e;
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, sans-serif;
-            --font-hand: 'Caveat', cursive;
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            background: var(--bg); color: var(--text);
-            font-family: var(--font-sans); line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        body::before {
-            content: ''; position: fixed; inset: 0; opacity: .03; pointer-events: none; z-index: 9999;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-        }
-        a { color: var(--gold); text-decoration: none; transition: .3s; }
-        a:hover { color: var(--gold-light); }
-        img { max-width: 100%; display: block; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 16px 0;
-            background: rgba(10,10,10,.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(200,168,124,.08);
-        }
-        nav .container { display: flex; align-items: center; justify-content: space-between; }
-        nav .logo { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--text); letter-spacing: -.02em; }
-        nav .logo span { color: var(--gold); }
-        nav .nav-links { display: flex; gap: 32px; align-items: center; }
-        nav .nav-links a { font-size: .85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; transition: .3s; }
-        nav .nav-links a:hover { color: var(--gold); }
-        .nav-cta { background: var(--gold); color: var(--bg) !important; padding: 8px 20px; border-radius: 4px; font-weight: 600 !important; text-transform: none !important; letter-spacing: normal !important; }
-        .nav-cta:hover { background: var(--gold-light); }
-        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .mobile-toggle span { width: 24px; height: 2px; background: var(--text); transition: .3s; }
-
-        .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; position: relative; overflow: hidden; }
-        .hero::after { content: ''; position: absolute; top: -30%; right: -20%; width: 70%; height: 140%; background: radial-gradient(ellipse at center, rgba(200,168,124,.04) 0%, transparent 70%); pointer-events: none; }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-        .hero-content h5 { font-family: var(--font-hand); font-size: 1.4rem; color: var(--gold); margin-bottom: 8px; }
-        .hero-content h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 24px; }
-        .hero-content h1 .gold { color: var(--gold); }
-        .hero-content .sub { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 16px; font-weight: 300; line-height: 1.5; }
-        .hero-content .sub strong { color: var(--text); font-weight: 500; }
-        .hero-content .tagline { font-family: var(--font-hand); font-size: 1.3rem; color: var(--gold-dark); margin-bottom: 32px; }
-        .hero-photo { display: flex; justify-content: center; }
-        .hero-photo .img-wrapper { width: 100%; max-width: 460px; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.5); border: 1px solid rgba(200,168,124,.12); }
-        .hero-photo .img-wrapper img { width: 100%; height: auto; display: block; }
-        .hero-photo .img-wrapper .credit { position: absolute; bottom: 8px; right: 12px; font-size: .65rem; color: rgba(255,255,255,.5); letter-spacing: .05em; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
-        .btn { display: inline-block; background: var(--gold); color: var(--bg); padding: 14px 36px; border-radius: 4px; font-weight: 600; font-size: .95rem; border: none; cursor: pointer; transition: .3s; }
-        .btn:hover { background: var(--gold-light); color: var(--bg); transform: translateY(-1px); }
-        .btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); margin-left: 12px; }
-        .btn-outline:hover { background: rgba(200,168,124,.1); }
-
-        .ticker { padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; background: var(--bg2); }
-        .ticker-track { display: flex; gap: 48px; animation: ticker 30s linear infinite; white-space: nowrap; }
-        .ticker-track span { font-size: .8rem; text-transform: uppercase; letter-spacing: .15em; color: var(--text-muted); font-weight: 500; }
-        .ticker-track span strong { color: var(--gold); font-weight: 600; }
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        .problem { padding: 100px 0; background: var(--bg2); }
-        .problem-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        .problem-content .hand-label { font-family: var(--font-hand); font-size: 1.2rem; color: var(--gold); margin-bottom: 12px; }
-        .problem-content h2 { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; margin-bottom: 20px; letter-spacing: -.02em; }
-        .problem-content .big-quote { font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 2rem); font-style: italic; color: var(--gold); margin: 32px 0 20px; line-height: 1.3; }
-        .problem-content p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
-
-        .services { padding: 100px 0; }
-        .services .hand-label { font-family: var(--font-hand); font-size: 1.2rem; color: var(--gold); text-align: center; margin-bottom: 8px; }
-        .services h2 { font-family: var(--font-serif); font-size: clamp(2rem, 3vw, 2.6rem); text-align: center; margin-bottom: 60px; letter-spacing: -.02em; }
-        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .service-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 40px; transition: .3s; }
-        .service-card:hover { border-color: rgba(200,168,124,.25); transform: translateY(-2px); }
-        .service-card .icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-        .service-card h3 { font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold); margin-bottom: 20px; }
-        .service-card .what { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold-dark); font-weight: 600; margin-bottom: 8px; }
-        .service-card ul { list-style: none; margin-bottom: 20px; }
-        .service-card ul li { padding: 8px 0; color: var(--text-muted); font-size: .95rem; padding-left: 20px; position: relative; }
-        .service-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
-        .service-card .cta-card { display: inline-block; margin-top: 12px; color: var(--gold); font-weight: 500; font-size: .95rem; }
-
-        .method { padding: 100px 0; background: var(--bg2); }
-        .method .hand-label { font-family: var(--font-hand); font-size: 1.2rem; color: var(--gold); text-align: center; margin-bottom: 8px; }
-        .method h2 { font-family: var(--font-serif); font-size: clamp(2rem, 3vw, 2.6rem); text-align: center; margin-bottom: 12px; letter-spacing: -.02em; }
-        .method .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; }
-        .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .method-card { text-align: center; padding: 32px 20px; border: 1px solid var(--border); border-radius: 12px; transition: .3s; }
-        .method-card:hover { border-color: rgba(200,168,124,.25); }
-        .method-card .letter { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(200,168,124,.1); border: 1px solid rgba(200,168,124,.2); font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
-        .method-card h4 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 8px; }
-        .method-card p { color: var(--text-muted); font-size: .9rem; }
-
-        .about { padding: 100px 0; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-photo { border-radius: 12px; overflow: hidden; border: 1px solid rgba(200,168,124,.12); box-shadow: 0 10px 40px rgba(0,0,0,.4); position: relative; }
-        .about-photo img { width: 100%; height: auto; display: block; }
-        .about-photo .credit { position: absolute; bottom: 8px; right: 12px; font-size: .65rem; color: rgba(255,255,255,.5); letter-spacing: .05em; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
-        .about-content .hand-label { font-family: var(--font-hand); font-size: 1.2rem; color: var(--gold); margin-bottom: 8px; }
-        .about-content h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 20px; letter-spacing: -.02em; }
-        .about-content p { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; line-height: 1.7; }
-        .about-content .highlight { color: var(--gold); font-weight: 500; }
-        .about-certs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
-        .about-certs span { font-size: .9rem; color: var(--text-muted); padding-left: 20px; position: relative; }
-        .about-certs span::before { content: '✓'; position: absolute; left: 0; color: var(--gold); }
-
-        .manifesto { padding: 100px 0; background: var(--bg2); text-align: center; }
-        .manifesto blockquote { max-width: 720px; margin: 0 auto; font-family: var(--font-serif); font-size: clamp(1.3rem, 2.5vw, 2rem); font-style: italic; line-height: 1.4; color: var(--text); }
-        .manifesto blockquote .gold { color: var(--gold); }
-        .manifesto .author { margin-top: 24px; font-family: var(--font-hand); font-size: 1.4rem; color: var(--gold-dark); }
-
-        .cases { padding: 100px 0; background: var(--bg2); }
-        .cases .hand-label { font-family: var(--font-hand); font-size: 1.2rem; color: var(--gold); text-align: center; margin-bottom: 8px; }
-        .cases h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.4rem); text-align: center; margin-bottom: 40px; letter-spacing: -.02em; }
-        .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .case-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 32px; transition: .3s; }
-        .case-card:hover { border-color: rgba(200,168,124,.25); }
-        .case-card .name { font-family: var(--font-serif); font-size: 1.2rem; color: var(--gold); margin-bottom: 4px; }
-        .case-card .tag { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 12px; }
-        .case-card p { color: var(--text-muted); font-size: .9rem; }
-
-        .fer-fotos { padding: 60px 0; text-align: center; border-top: 1px solid var(--border); }
-        .fer-fotos p { font-family: var(--font-serif); font-style: italic; color: var(--text-muted); font-size: .95rem; }
-        .fer-fotos p a { color: var(--gold-dark); font-style: normal; font-family: var(--font-sans); font-weight: 500; letter-spacing: .05em; text-transform: uppercase; font-size: .8rem; }
-
-        .cta-section { padding: 100px 0; text-align: center; position: relative; }
-        .cta-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-        .cta-section .hand-label { font-family: var(--font-hand); font-size: 1.3rem; color: var(--gold); margin-bottom: 12px; }
-        .cta-section h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 3rem); margin-bottom: 16px; letter-spacing: -.02em; }
-        .cta-section p { color: var(--text-muted); max-width: 500px; margin: 0 auto 32px; font-size: 1.05rem; }
-        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-        .form-section { padding: 80px 0; background: var(--bg2); }
-        .form-section h2 { font-family: var(--font-serif); font-size: 1.8rem; text-align: center; margin-bottom: 8px; }
-        .form-section .form-sub { text-align: center; color: var(--text-muted); margin-bottom: 40px; }
-        .form-grid { max-width: 640px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-grid .full { grid-column: 1 / -1; }
-        .form-grid input, .form-grid select, .form-grid textarea { width: 100%; padding: 14px 16px; background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-family: var(--font-sans); font-size: .95rem; transition: .3s; }
-        .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { outline: none; border-color: var(--gold); }
-        .form-grid textarea { resize: vertical; min-height: 100px; }
-        .form-grid select option { background: var(--bg); color: var(--text); }
-        .form-grid .btn { grid-column: 1 / -1; justify-self: center; margin-top: 8px; }
-
-        footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; }
-        footer .logo-sm { font-family: var(--font-serif); font-size: 1.1rem; color: var(--text); margin-bottom: 12px; }
-        footer .logo-sm span { color: var(--gold); }
-        footer .social { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; }
-        footer .social a { color: var(--text-muted); font-size: .9rem; font-weight: 500; transition: .3s; }
-        footer .social a:hover { color: var(--gold); }
-        footer p { color: var(--text-muted); font-size: .8rem; }
-        footer .tag { font-family: var(--font-hand); color: var(--gold-dark); font-size: 1rem; margin-bottom: 16px; }
-
-        .fade-in { opacity: 0; transform: translateY(30px); transition: .8s cubic-bezier(.22,1,.36,1); }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: .1s; } .delay-2 { transition-delay: .2s; }
-        .delay-3 { transition-delay: .3s; } .delay-4 { transition-delay: .4s; }
-
-        @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero-photo .img-wrapper { max-width: 340px; margin: 0 auto; }
-            .hero-content { order: 1; } .hero-photo { order: 0; }
-            .services-grid, .about-grid { grid-template-columns: 1fr; }
-            .method-grid { grid-template-columns: 1fr 1fr; }
-            .cases-grid { grid-template-columns: 1fr; }
-            .about-photo { max-width: 400px; margin: 0 auto; order: 0; }
-            .about-content { order: 1; }
-            .nav-links { display: none; }
-            .mobile-toggle { display: flex; }
-        }
-        @media (max-width: 600px) {
-            .method-grid, .about-certs, .form-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.2rem; }
-        }
-    </style>
-</head>
-<body>
-
-<nav>
-    <div class="container">
-        <a href="#" class="logo">Julia T<span>.</span></a>
-        <div class="nav-links" id="navLinks">
-            <a href="#services">Serviços</a>
-            <a href="#method">Método</a>
-            <a href="#about">Sobre</a>
-            <a href="#cases">Cases</a>
-            <a href="#contact" class="nav-cta">Conversar</a>
-        </div>
-        <div class="mobile-toggle" id="mobileToggle">
-            <span></span><span></span><span></span>
-        </div>
-    </div>
-</nav>
-
-<section class="hero" id="hero">
-    <div class="container">
-        <div class="hero-grid">
-            <div class="hero-content">
-                <h5 class="fade-in">Oi, eu sou a Julia</h5>
-                <h1 class="fade-in delay-1">Seu restaurante<br><span class="gold">não precisa de<br>mais posts.</span><br>Precisa de <span class="gold">estratégia.</span></h1>
-                <p class="sub fade-in delay-2"><strong>Estratégia de redes sociais</strong> que posiciona sua marca<br>+ <strong>Gestão</strong> que realmente entrega resultado.</p>
-                <p class="tagline fade-in delay-3">View enche ego. Cliente enche mesa.</p>
-                <div class="fade-in delay-4">
-                    <a href="https://wa.me/5551995968770" class="btn">Quero crescer meu restaurante</a>
-                    <a href="#services" class="btn btn-outline">Ver serviços</a>
-                </div>
-            </div>
-            <div class="hero-photo fade-in delay-2">
-                <div class="img-wrapper">
-                    <img src="https://i.imgur.com/crd6YW2.jpeg" alt="Julia Tonello">
-                    <span class="credit">📷 Fer Fotos</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="ticker">
-    <div class="ticker-track">
-        <span><strong>ESTRATÉGIA</strong> · POSICIONAMENTO · ANÁLISE DE MARCA · <strong>DNA</strong> · VALOR PERCEBIDO · GASTRONOMIA · <strong>MARKETING</strong> · CONCORRÊNCIA ·</span>
-        <span><strong>ESTRATÉGIA</strong> · POSICIONAMENTO · ANÁLISE DE MARCA · <strong>DNA</strong> · VALOR PERCEBIDO · GASTRONOMIA · <strong>MARKETING</strong> · CONCORRÊNCIA ·</span>
-    </div>
-</div>
-
-<section class="problem" id="problem">
-    <div class="container">
-        <div class="problem-content">
-            <p class="hand-label fade-in">O problema</p>
-            <h2 class="fade-in delay-1">Viralizou. <span class="gold">E agora?</span></h2>
-            <div class="big-quote fade-in delay-2">"View enche ego.<br><span class="gold">Cliente enche mesa.</span>"</div>
-            <p class="fade-in delay-3">Seu Instagram encheu. O salão continuou igual.<br>Viral atrai curioso. Estratégia atrai <strong>cliente certo</strong>.</p>
-        </div>
-    </div>
-</section>
-
-<section class="services" id="services">
-    <div class="container">
-        <p class="hand-label fade-in">O que eu faço</p>
-        <h2 class="fade-in delay-1">Duas formas de <span class="gold">crescer</span></h2>
-        <div class="services-grid">
-            <div class="service-card fade-in delay-2">
-                <span class="icon">🎯</span>
-                <h3>Estratégia de Redes Sociais</h3>
-                <p class="what">ANÁLISE & POSICIONAMENTO</p>
-                <ul>
-                    <li><strong style="color:var(--text);">Análise completa</strong> da sua marca — o que já existe, DNA, diferenciais, concorrência</li>
-                    <li>Definição de <strong style="color:var(--text);">posicionamento</strong> estratégico a partir dessa análise</li>
-                    <li>Tom de voz, identidade visual e narrativa da marca</li>
-                    <li>Calendário editorial com conteúdo que <strong style="color:var(--text);">converte</strong></li>
-                    <li>Funil de conteúdo: do topo ao fundo</li>
-                    <li>Estratégia omnichannel (Instagram + TikTok + WhatsApp)</li>
-                </ul>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:16px;">↘ Pra quem já existe e quer ser <strong style="color:var(--gold);">ESCOLHIDO</strong>.</p>
-                <a href="https://wa.me/5551995968770" class="cta-card">Quero estratégia →</a>
-            </div>
-            <div class="service-card fade-in delay-3">
-                <span class="icon">⚙️</span>
-                <h3>Gestão de Redes Sociais</h3>
-                <p class="what">OPERAÇÃO & EXECUÇÃO</p>
-                <ul>
-                    <li>Criação de conteúdo estratégico (posts, reels, stories)</li>
-                    <li>Produção de arte e copy com base na estratégia definida</li>
-                    <li>Publicação e frequência consistente</li>
-                    <li>Engajamento com a comunidade</li>
-                    <li>Acompanhamento de métricas e resultados</li>
-                    <li>Relatórios mensais de performance</li>
-                </ul>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:16px;">↘ Pra quem quer <strong style="color:var(--gold);">EXECUTAR</strong> sem preocupação.</p>
-                <a href="https://wa.me/5551995968770" class="cta-card">Quero gestão →</a>
-            </div>
-        </div>
-        <div style="text-align:center;margin-top:48px;padding:32px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;" class="fade-in delay-3">
-            <p style="color:var(--text-muted);margin-bottom:12px;">Os dois serviços se complementam?</p>
-            <p style="font-family:var(--font-serif);font-size:1.3rem;color:var(--gold);">Estratégia sem execução é teoria.<br>Execução sem estratégia é movimento.</p>
-        </div>
-    </div>
-</section>
-
-<section class="method" id="method">
-    <div class="container">
-        <p class="hand-label fade-in">Metodologia</p>
-        <h2 class="fade-in delay-1">Método <span class="gold">M.E.S.A.</span></h2>
-        <p class="subtitle fade-in delay-2">O sistema que transforma restaurantes em marcas.</p>
-        <div class="method-grid">
-            <div class="method-card fade-in delay-1"><div class="letter">M</div><h4>Marca</h4><p>Análise de DNA, diferenciais e concorrência. Quem você é e como quer ser lembrado.</p></div>
-            <div class="method-card fade-in delay-2"><div class="letter">E</div><h4>Experiência</h4><p>Tudo comunica. Do prato ao post. Do ambiente ao atendimento.</p></div>
-            <div class="method-card fade-in delay-3"><div class="letter">S</div><h4>Estratégia</h4><p>Posicionamento definido. Conteúdo que posiciona. Narrativa que converte.</p></div>
-            <div class="method-card fade-in delay-4"><div class="letter">A</div><h4>Ação</h4><p>Implementação real. Acompanhamento constante. Resultados mensuráveis.</p></div>
-        </div>
-    </div>
-</section>
-
-<section class="about" id="about">
-    <div class="container">
-        <div class="about-grid">
-            <div class="about-photo fade-in">
-                <img src="https://i.imgur.com/crd6YW2.jpeg" alt="Julia Tonello">
-                <span class="credit">📷 Fer Fotos</span>
-            </div>
-            <div class="about-content fade-in delay-2">
-                <p class="hand-label">Sobre mim</p>
-                <h2>Tudo começou<br><span class="gold">na gastronomia.</span></h2>
-                <p>Antes do marketing, veio a cozinha. Sou <strong class="highlight">formada em Gastronomia</strong> e especialista em <strong class="highlight">Comunicação e Marketing</strong>. Essa combinação me permite criar estratégias que fazem sentido para o negócio — e não apenas para as redes sociais.</p>
-                <p>Não entrego branding de prancheta. <strong>Analiso sua marca como ela realmente é</strong> — seus pontos fortes, seus diferenciais, sua concorrência, seu DNA. E a partir dessa análise construo um posicionamento que faz seu restaurante ser escolhido todos os dias.</p>
-                <div class="about-certs">
-                    <span>Conheço operação e gestão</span>
-                    <span>Conheço atendimento e cardápio</span>
-                    <span>Conheço números e resultados</span>
-                    <span>Conheço o que faz um restaurante crescer</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="manifesto">
-    <div class="container">
-        <blockquote class="fade-in">"Não vendo posts.<br>Não vendo seguidores.<br><span class="gold">Vendo posicionamento.<br>Vendo crescimento.</span>"</blockquote>
-        <p class="author fade-in delay-1">— Julia Tonello</p>
-    </div>
-</section>
-
-<section class="cases" id="cases">
-    <div class="container">
-        <p class="hand-label fade-in">Trabalhos realizados</p>
-        <h2 class="fade-in delay-1">Cada projeto começa<br>pela <span class="gold">estratégia</span></h2>
-        <div class="cases-grid">
-            <div class="case-card fade-in delay-1">
-                <p class="name">Nalu Açaí</p>
-                <p class="tag">Posicionamento de marca</p>
-                <p>Análise de marca + reposicionamento para marca desejada.</p>
-                <p class="tag" style="font-size:.65rem;color:var(--gold-dark);margin-top:12px;">Criado por Julia Tonello</p>
-            </div>
-            <div class="case-card fade-in delay-2">
-                <p class="name">Panini Sanduíche</p>
-                <p class="tag">Marketing estratégico</p>
-                <p>Estratégia de conteúdo e posicionamento para crescer.</p>
-                <p class="tag" style="font-size:.65rem;color:var(--gold-dark);margin-top:12px;">📷 Fer Fotos</p>
-            </div>
-            <div class="case-card fade-in delay-3">
-                <p class="name">Issho Sushi</p>
-                <p class="tag">Posicionamento & conteúdo</p>
-                <p>Posicionamento para ser escolhido entre concorrentes.</p>
-                <p class="tag" style="font-size:.65rem;color:var(--gold-dark);margin-top:12px;">📷 Fer Fotos</p>
-            </div>
-        </div>
-        <div class="case-card fade-in delay-4" style="max-width:380px;margin:24px auto 0;">
-            <p class="name">Lanches do Alemão</p>
-            <p class="tag">Comunicação & operação</p>
-            <p>Estratégia visual e editorial com conteúdo que vende.</p>
-            <p class="tag" style="font-size:.65rem;color:var(--gold-dark);margin-top:12px;">📷 Fer Fotos</p>
-        </div>
-    </div>
-</section>
-
-<section class="fer-fotos">
-    <div class="container">
-        <p>"Gastronomia em imagem. Fotografias de impacto."<br><a href="#">© Fer Fotos — todos os direitos reservados</a></p>
-    </div>
-</section>
-
-<section class="cta-section" id="contact">
-    <div class="container">
-        <p class="hand-label fade-in">Agenda aberta</p>
-        <h2 class="fade-in delay-1">Seu restaurante merece<br>ser <span class="gold">lembrado</span>.</h2>
-        <p class="fade-in delay-2">Vamos construir uma marca que vende todos os dias.</p>
-        <div class="cta-buttons fade-in delay-3">
-            <a href="https://wa.me/5551995968770" class="btn">💬 Chamar no WhatsApp</a>
-            <a href="#form" class="btn btn-outline">Solicitar orçamento</a>
-        </div>
-    </div>
-</section>
-
-<section class="form-section" id="form">
-    <div class="container">
-        <h2 class="fade-in">Vamos conversar<br><span class="gold">sobre sua marca</span></h2>
-        <p class="form-sub fade-in delay-1">Conte um pouco sobre o seu negócio. Respondo em até 48 horas.</p>
-        <form class="form-grid fade-in delay-2" id="contactForm">
-            <input type="text" id="formName" placeholder="Seu nome" required>
-            <input type="email" id="formEmail" placeholder="Seu e-mail" required>
-            <input type="text" id="formBusiness" placeholder="Nome do negócio" class="full">
-            <select id="formSegment" class="full">
-                <option value="">Segmento</option>
-                <option>Restaurante</option>
-                <option>Bar</option>
-                <option>Café</option>
-                <option>Outro</option>
-            </select>
-            <textarea id="formMessage" class="full" placeholder="O que você quer resolver?" required></textarea>
-            <button type="submit" class="btn">Enviar via WhatsApp →</button>
-        </form>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p class="tag">Toda marca comunica. A questão é: o que ela está dizendo?</p>
-        <p class="logo-sm">Julia T<span>.</span></p>
-        <div class="social">
-            <a href="https://instagram.com/juliatonello" target="_blank">Instagram</a>
-            <a href="https://wa.me/5551995968770" target="_blank">WhatsApp</a>
-            <a href="mailto:jumtonello@gmail.com">E-mail</a>
-        </div>
-        <p>© 2026 Julia Tonello — Food Marketing Strategist</p>
-    </div>
-</footer>
-
-<script>
-    const toggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        if (navLinks.style.display === 'flex') {
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.background = 'rgba(10,10,10,.95)';
-            navLinks.style.padding = '24px';
-            navLinks.style.borderBottom = '1px solid var(--border)';
-            navLinks.style.gap = '16px';
-        }
-    });
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: .1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('formName').value;
-        const email = document.getElementById('formEmail').value;
-        const business = document.getElementById('formBusiness').value;
-        const segment = document.getElementById('formSegment').value;
-        const message = document.getElementById('formMessage').value;
-        const text = `Olá Julia! Me chamo ${name} (${email}). Tenho o negócio ${business} (${segment || 'não informado'}). ${message}`;
-        window.open(`https://wa.me/5551995968770?text=${encodeURIComponent(text)}`, '_blank');
-    });
-</script>
-</body>
-</html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julia Tonello — Estratégia & Gestão de Redes Sociais para Restaurantes</title>
+<meta name="description" content="Estratégia de redes sociais e gestão que realmente entrega resultado para restaurantes. Viral enche ego. Cliente enche mesa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-primary:#0a0a0a;
+  --bg-secondary:#1a1a1a;
+  --text-primary:#f5f5f5;
+  --text-secondary:#a0a0a0;
+  --accent:#c8a87c;
+  --accent-bright:#d9bd97;
+  --white:#ffffff;
+  --border:#2a2a2a;
+  --font-heading:'Playfair Display', Georgia, serif;
+  --font-body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-hand:'Caveat', cursive;
+  --max-width:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.grain-overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:9999;
+  opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:var(--bg-primary);}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:var(--bg-primary);}
+::-webkit-scrollbar-thumb{background:var(--border);}
+::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 24px;
+}
+.nav{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  z-index:1000;
+  padding:20px 0;
+  transition:all 0.4s ease;
+  background:transparent;
+}
+.nav.scrolled{
+  background:rgba(10,10,10,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:14px 0;
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo{
+  font-family:var(--font-heading);
+  font-size:1.6rem;
+  font-weight:700;
+  color:var(--text-primary);
+  text-decoration:none;
+  letter-spacing:-0.5px;
+}
+.nav-logo span{color:var(--accent);}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-size:0.9rem;
+  font-weight:500;
+  letter-spacing:0.3px;
+  transition:color 0.3s ease;
+  position:relative;
+}
+.nav-links a:hover{color:var(--text-primary);}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;left:0;
+  width:0;height:1px;
+  background:var(--accent);
+  transition:width 0.3s ease;
+}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  border:1px solid var(--accent);
+  color:var(--accent);
+  padding:10px 22px;
+  border-radius:2px;
+  text-decoration:none;
+  font-size:0.85rem;
+  font-weight:600;
+  letter-spacing:0.5px;
+  transition:all 0.3s ease;
+  background:transparent;
+  cursor:pointer;
+}
+.nav-cta:hover{
+  background:var(--accent);
+  color:var(--bg-primary);
+}
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:8px;
+  z-index:1001;
+}
+.hamburger span{
+  width:26px;height:2px;
+  background:var(--text-primary);
+  transition:all 0.3s ease;
+}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  padding:120px 0 80px;
+  background:var(--bg-primary);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(200,168,124,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+  opacity:0.06;
+  pointer-events:none;
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+}
+.hero-eyebrow{
+  font-family:var(--font-hand);
+  font-size:1.8rem;
+  color:var(--accent);
+  margin-bottom:20px;
+  display:block;
+}
+.hero h1{
+  font-family:var(--font-heading);
+  font-size:clamp(2.5rem, 7vw, 5.5rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-1.5px;
+  margin-bottom:32px;
+  color:var(--text-primary);
+}
+.hero h1 .highlight{
+  color:var(--accent);
+  font-style:italic;
+}
+.hero h1 .strike{
+  position:relative;
+  display:inline-block;
+}
+.hero h1 .strike::after{
+  content:'';
+  position:absolute;
+  top:55%;left:-5%;
+  width:110%;height:4px;
+  background:var(--accent);
+  transform:rotate(-2deg);
+}
+.hero-sub{
+  font-size:1.3rem;
+  color:var(--text-primary);
+  font-weight:400;
+  max-width:620px;
+  margin-bottom:16px;
+  line-height:1.5;
+}
+.hero-sub-secondary{
+  font-family:var(--font-hand);
+  font-size:1.6rem;
+  color:var(--text-secondary);
+  margin-bottom:48px;
+}
+.hero-ctas{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 32px;
+  font-size:0.95rem;
+  font-weight:600;
+  letter-spacing:0.5px;
+  text-decoration:none;
+  border-radius:2px;
+  transition:all 0.3s ease;
+  cursor:pointer;
+  border:none;
+  font-family:var(--font-body);
+}
+.btn-primary{
+  background:var(--accent);
+  color:var(--bg-primary);
+}
+.btn-primary:hover{
+  background:var(--accent-bright);
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(200,168,124,0.25);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--text-primary);
+  border:1px solid var(--border);
+}
+.btn-outline:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+section{padding:100px 0;position:relative;}
+.section-label{
+  font-family:var(--font-hand);
+  font-size:1.5rem;
+  color:var(--accent);
+  margin-bottom:12px;
+  display:block;
+}
+.section-title{
+  font-family:var(--font-heading);
+  font-size:clamp(2rem, 5vw, 3.5rem);
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-1px;
+  margin-bottom:24px;
+}
+.section-intro{
+  font-size:1.15rem;
+  color:var(--text-secondary);
+  max-width:680px;
+  line-height:1.7;
+}
+.problem{
+  background:var(--bg-secondary);
+  text-align:center;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.problem .container{max-width:900px;}
+.problem-eyebrow{
+  font-family:var(--font-hand);
+  font-size:1.6rem;
+  color:var(--accent);
+  margin-bottom:16px;
+}
+.problem h2{
+  font-family:var(--font-heading);
+  font-size:clamp(2.2rem, 6vw, 4.5rem);
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:40px;
+}
+.problem-quote{
+  font-family:var(--font-heading);
+  font-style:italic;
+  font-size:clamp(1.8rem, 4vw, 3rem);
+  color:var(--text-primary);
+  line-height:1.3;
+  margin:40px 0;
+  position:relative;
+  padding:40px 0;
+}
+.problem-quote::before,
+.problem-quote::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:60px;height:1px;
+  background:var(--accent);
+}
+.problem-quote::before{top:0;}
+.problem-quote::after{bottom:0;}
+.problem-quote .gold{color:var(--accent);font-weight:700;}
+.problem-text{
+  font-size:1.2rem;
+  color:var(--text-secondary);
+  max-width:640px;
+  margin:0 auto;
+  line-height:1.7;
+}
+.services{
+  background:var(--bg-primary);
+}
+.services-header{
+  text-align:center;
+  margin-bottom:70px;
+}
+.services-header .section-intro{margin:0 auto;}
+.services-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+}
+.service-card{
+  background:var(--bg-secondary);
+  border:1px solid var(--border);
+  padding:48px 40px;
+  border-radius:4px;
+  transition:all 0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+.service-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:3px;
+  background:var(--accent);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.4s ease;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+}
+.service-card:hover::before{transform:scaleX(1);}
+.service-number{
+  font-family:var(--font-heading);
+  font-size:3.5rem;
+  font-weight:800;
+  color:var(--accent);
+  opacity:0.25;
+  line-height:1;
+  margin-bottom:16px;
+}
+.service-card h3{
+  font-family:var(--font-heading);
+  font-size:1.8rem;
+  font-weight:700;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+.service-card ul{
+  list-style:none;
+  margin-bottom:28px;
+}
+.service-card ul li{
+  padding:10px 0;
+  color:var(--text-secondary);
+  font-size:0.98rem;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  padding-left:24px;
+}
+.service-card ul li::before{
+  content:'—';
+  position:absolute;
+  left:0;
+  color:var(--accent);
+}
+.service-card ul li:last-child{border-bottom:none;}
+.service-for{
+  padding-top:24px;
+  border-top:1px solid var(--border);
+}
+.service-for-label{
+  font-family:var(--font-hand);
+  font-size:1.3rem;
+  color:var(--accent);
+  margin-bottom:6px;
+}
+.service-for-text{
+  font-size:1.05rem;
+  color:var(--text-primary);
